@@ -24,6 +24,9 @@ A PHP web application that manages naval officers with more holes than Swiss che
 ## 🏴‍☠️ Getting Started
 
 ```bash
+#Give setup.sh necessary permission to run
+sudo chmod +x setup.sh
+
 # Run the setup script USING SUDO
 sudo ./setup.sh
 ```
