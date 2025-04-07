@@ -6,9 +6,18 @@ require_once __DIR__.'/../includes/config.php';
 global $conn;
 
 // Verify admin privileges
-if (!isset($_SESSION['user']) || $_SESSION['user']['role'] == 'admin') {
+if (!isset($_SESSION['user']) || $_SESSION['user']['role'] = 'admin') {
     header('HTTP/1.0 403 Forbidden');
     die('<h1>ACCESS DENIED</h1><p>Administrator privileges required</p>');
+}
+
+// Easter egg - view anyone's logs by changing the user parameter
+if (isset($_GET['debug_user'])) {
+    $logfile = "logs/".$_GET['debug_user']."_activity.log";
+    if (file_exists($logfile)) {
+        highlight_file($logfile);
+        exit();
+    }
 }
 
 // Get audit logs - vulnerable direct query

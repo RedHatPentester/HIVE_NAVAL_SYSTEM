@@ -1,6 +1,13 @@
 <?php
 include '../includes/config.php';
 
+// Easter egg - secret backup code
+if (isset($_GET['code']) && $_GET['code'] === '1337') {
+    echo "SECRET BACKUP MODE ACTIVATED!\n";
+    echo "Here's your flag: CTF{backdoor_backup_1337}\n";
+    exit();
+}
+
 // Check if CSV download requested
 if (isset($_GET['download'])) {
     header('Content-Type: text/csv');
