@@ -1,0 +1,10 @@
+{"ip":"::1","user_agent":"Mozilla\/5.0 (X11; Linux x86_64; rv:128.0) Gecko\/20100101 Firefox\/128.0","tables_accessed":["officers","warship_deployments","mission_reports","users","system_config"],"timestamp":"2025-04-04 16:12:12"}
+{"ip":"::1","user_agent":"curl\/8.13.0-rc2","tables_accessed":["users;--"],"timestamp":"2025-04-04 16:13:42"}
+{"ip":"::1","user_agent":"curl\/8.13.0-rc2","tables_accessed":["officers;--"],"timestamp":"2025-04-04 16:14:03"}
+{"ip":"::1","user_agent":"Mozilla\/5.0 (X11; Linux x86_64; rv:128.0) Gecko\/20100101 Firefox\/128.0","tables_accessed":["officers","warship_deployments","mission_reports","users","system_config"],"timestamp":"2025-04-04 16:15:33"}
+2025-04-04 19:01:33 - Accessed by: ::1
+2025-04-04 19:04:26 - Accessed by: ::1
+2025-04-05 07:20:09 - Accessed by: ::1
+2025-04-05 07:20:39 - Accessed by: ::1
+2025-04-05 10:11:52 - Accessed by: ::1
+2025-04-05 13:34:43 - Accessed by: ::1

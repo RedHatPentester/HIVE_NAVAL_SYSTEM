@@ -1,0 +1,1 @@
+This is a dummy report file for testing command injection.

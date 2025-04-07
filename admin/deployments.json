@@ -1,0 +1,172 @@
+{
+    "status": "active",
+    "last_updated": "2025-04-04T10:00:00Z",
+    "data": [
+      {
+        "ship_name": "NNS Thunder",
+        "position": "6.4274,3.9242",
+        "status": "on patrol",
+        "commanding_officer": "Captain T. Oladipo",
+        "speed": "20 knots",
+        "heading": "180°",
+        "mission": "Anti-piracy operation",
+        "assigned_fleet": "Nigerian Navy Western Fleet",
+        "base": "Naval Base Apapa, Lagos, Nigeria"
+      },
+      {
+        "ship_name": "NNS Unity",
+        "position": "4.9041,6.2653",
+        "status": "escort duty",
+        "commanding_officer": "Commander B. Adeyemi",
+        "speed": "15 knots",
+        "heading": "230°",
+        "mission": "Oil rig security",
+        "assigned_fleet": "Nigerian Navy Eastern Fleet",
+        "base": "Naval Base Warri, Nigeria"
+      },
+      {
+        "ship_name": "NNS Centenary",
+        "position": "4.7348,7.0104",
+        "status": "search and rescue",
+        "commanding_officer": "Captain E. Uche",
+        "speed": "14 knots",
+        "heading": "135°",
+        "mission": "Rescue operation after reported vessel distress",
+        "assigned_fleet": "Nigerian Navy Special Task Force",
+        "base": "Bonny Naval Base, Nigeria"
+      },
+      {
+        "ship_name": "GNS Ejura",
+        "position": "5.5586,-0.2012",
+        "status": "exercises",
+        "commanding_officer": "Captain K. Boateng",
+        "speed": "17 knots",
+        "heading": "90°",
+        "mission": "Maritime defense drills",
+        "assigned_fleet": "Ghana Navy Atlantic Fleet",
+        "base": "Takoradi Naval Base, Ghana"
+      },
+      {
+        "ship_name": "GNS Chemu",
+        "position": "4.8936,-1.7596",
+        "status": "on patrol",
+        "commanding_officer": "Commander S. Mensah",
+        "speed": "19 knots",
+        "heading": "160°",
+        "mission": "Fisheries protection",
+        "assigned_fleet": "Ghana Navy Western Fleet",
+        "base": "Sekondi Naval Base, Ghana"
+      },
+      {
+        "ship_name": "GNS Volta",
+        "position": "5.1276,-1.2824",
+        "status": "escort duty",
+        "commanding_officer": "Commander N. Asante",
+        "speed": "16 knots",
+        "heading": "210°",
+        "mission": "Cargo ship escort through Ghanaian waters",
+        "assigned_fleet": "Ghana Navy Eastern Command",
+        "base": "Tema Naval Base, Ghana"
+      },
+      {
+        "ship_name": "GNS Anloga",
+        "position": "4.9217,-1.7568",
+        "status": "undergoing maintenance",
+        "commanding_officer": "Captain D. Owusu",
+        "speed": "0 knots",
+        "heading": "N/A",
+        "mission": "Routine maintenance check",
+        "assigned_fleet": "Ghana Navy Special Operations",
+        "base": "Takoradi Naval Base, Ghana"
+      },
+      {
+        "ship_name": "GNS Osu",
+        "position": "5.5629,-0.1922",
+        "status": "intelligence gathering",
+        "commanding_officer": "Commodore J. Ofori",
+        "speed": "12 knots",
+        "heading": "330°",
+        "mission": "Monitoring suspected illegal fishing activity",
+        "assigned_fleet": "Ghana Navy Intelligence Division",
+        "base": "Tema Naval Base, Ghana"
+      },
+      {
+        "ship_name": "GNS Cape Coast",
+        "position": "5.1104,-1.2472",
+        "status": "joint exercise",
+        "commanding_officer": "Captain F. Quartey",
+        "speed": "22 knots",
+        "heading": "75°",
+        "mission": "Joint training with Nigerian and Senegalese navies",
+        "assigned_fleet": "Ghana Navy Rapid Response Unit",
+        "base": "Sekondi Naval Base, Ghana"
+      },
+      {
+        "ship_name": "SPS Rio Nunez",
+        "position": "9.5092,-13.7127",
+        "status": "rescue operations",
+        "commanding_officer": "Captain J. Camara",
+        "speed": "10 knots",
+        "heading": "75°",
+        "mission": "Humanitarian aid",
+        "assigned_fleet": "Guinea Maritime Defense Force",
+        "base": "Conakry Naval Base, Guinea"
+      },
+      {
+        "ship_name": "ENS N'Djamena",
+        "position": "14.7199,-17.4784",
+        "status": "dock maintenance",
+        "commanding_officer": "Commodore M. Diouf",
+        "speed": "0 knots",
+        "heading": "N/A",
+        "mission": "Routine overhaul",
+        "assigned_fleet": "Senegalese Navy Atlantic Command",
+        "base": "Dakar Naval Base, Senegal"
+      },
+      {
+        "ship_name": "FRS Lagos",
+        "position": "6.5244,3.3792",
+        "status": "joint exercise",
+        "commanding_officer": "Captain D. Obinna",
+        "speed": "21 knots",
+        "heading": "190°",
+        "mission": "Training with foreign allies",
+        "assigned_fleet": "Nigerian Navy Special Operations",
+        "base": "Naval Dockyard, Lagos, Nigeria"
+      },
+      {
+        "ship_name": "GNS Aflao",
+        "position": "6.1213,-0.0644",
+        "status": "high alert",
+        "commanding_officer": "Commander Y. Agyeman",
+        "speed": "23 knots",
+        "heading": "250°",
+        "mission": "Investigating reports of suspicious vessel activity",
+        "assigned_fleet": "Ghana Navy Special Task Force",
+        "base": "Tema Naval Base, Ghana"
+      },
+      {
+        "ship_name": "GNS Kumasi",
+        "position": "5.3619,-1.0319",
+        "status": "training mission",
+        "commanding_officer": "Captain L. Akoto",
+        "speed": "18 knots",
+        "heading": "130°",
+        "mission": "New crew training on live operational drills",
+        "assigned_fleet": "Ghana Navy Training Division",
+        "base": "Sekondi Naval Base, Ghana"
+      },
+      {
+        "ship_name": "KNS Mombasa",
+        "position": "-4.0355,39.6571",
+        "status": "high-speed chase",
+        "commanding_officer": "Commander P. Okoth",
+        "speed": "30 knots",
+        "heading": "270°",
+        "mission": "Anti-smuggling operation",
+        "assigned_fleet": "Kenyan Navy Coastal Command",
+        "base": "Mtongwe Naval Base, Kenya"
+      }
+    ]
+  }
+  

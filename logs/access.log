@@ -1,0 +1,4 @@
+[2023-11-20 04:00:00] Failed login: admin from 192.168.1.100
+[2023-11-20 04:01:23] SQL Error: ' OR 1=1 -- 
+[2023-11-20 04:02:45] File uploaded: shell.php
+[2023-11-20 04:03:12] ADMIN: Database exported by 192.168.1.100

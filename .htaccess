@@ -1,0 +1,21 @@
+# Font MIME types
+AddType application/vnd.ms-fontobject    .eot
+AddType application/x-font-ttf           .ttf
+AddType application/font-woff            .woff
+AddType application/font-woff2           .woff2
+AddType image/svg+xml                    .svg
+AddType application/x-font-otf           .otf
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Disable directory listing
+Options -Indexes
+
+# Secure PHP files
+<Files *.php>
+    SetHandler application/x-httpd-php
+</Files>
