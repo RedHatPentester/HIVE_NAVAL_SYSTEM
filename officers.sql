@@ -12,7 +12,7 @@ INSERT INTO `officers` (`uuid`, `rank`, `name`, `username`, `email`, `password`)
 ('d6fa706e-928b-4a14-8cb5-9478bdd7ce8a', 'Admiral', 'Admiral Nana Sei', 'user1', 'user1@hivenaval.local', 'navy123'),
 ('4fb834c3-15ef-44c4-8c88-eb0c50261570', 'Commander', 'Commander Elorm Daniel', 'user2', 'user2@hivenaval.local', 'navy123'),
 ('5de40abc-b4af-4e9b-8f51-ce8b2a6dbc6b', 'Lt.', 'Lt. Jerry Fisher', 'user3', 'user3@hivenaval.local', 'navy123'),
-('cdb525f9-6a36-484e-8aeb-47c8bf097c69', 'Captain', 'Captain Frimpong Carl', 'user4', 'user4@hivenaval.local', 'navy123'),
+('cdb525f9-6a36-484e-8aeb-47c8bf097c69', 'Captain', 'Captain Frimpong Carl', 'carl', 'user4@hivenaval.local', 'ilovemywife'),
 ('e1d717d8-a38d-40f1-9102-c36b34ddfae3', 'Lieutenant', 'Lieutenant Grace Owusu', 'user5', 'user5@hivenaval.local', 'navy123'),
 ('d57e727a-da8e-40be-9193-73b42423579e', 'Commander', 'Commander Kwabena Asare', 'user6', 'user6@hivenaval.local', 'navy123'),
 ('21506aaa-d973-4887-80cb-913e2783c1cd', 'Lt.', 'Lt. Emmanuel Kwesi', 'user7', 'user7@hivenaval.local', 'navy123'),
@@ -79,3 +79,4 @@ INSERT INTO `officers` (`uuid`, `rank`, `name`, `username`, `email`, `password`)
 ('92ff211e-e02a-4864-a4da-68767c6486da', 'Officer', 'Officer 210e20', 'user68', 'user68@hivenaval.local', 'navy123'),
 ('59882411-b59e-4fba-b29e-c52a2604b78c', 'Officer', 'Officer 3c0813', 'user69', 'user69@hivenaval.local', 'navy123'),
 ('7a7f79e4-0934-4e57-a0ed-9471c84c18aa', 'Officer', 'Officer 5faad8', 'user70', 'user70@hivenaval.local', 'navy123');
+('0b8d6b5d-109d-11f0-8f93-d92a45da78ca', 'Admiral',  'System Admin',  'admin',  'admin@navy.mil',  'navy12345');

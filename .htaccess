@@ -7,7 +7,7 @@ AddType image/svg+xml                    .svg
 AddType application/x-font-otf           .otf
 
 # Security headers
-<IfModule mod_headers.c>
+<IfModule mod_headers.c>    
     Header set X-Content-Type-Options "nosniff"
     Header set X-XSS-Protection "1; mode=block"
 </IfModule>
