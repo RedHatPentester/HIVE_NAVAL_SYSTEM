@@ -102,15 +102,40 @@ else
     }
 fi
 
+# Verify database creation
+echo -e "\033[33m🔍 Verifying database and user setup...\033[0m"
+db_exists=$(mysql -e "SHOW DATABASES LIKE 'hive_naval';" | grep hive_naval)
+user_exists=$(mysql -e "SELECT User FROM mysql.user WHERE User = 'hive_user';" | grep hive_user)
+
+if [ "$db_exists" == "hive_naval" ]; then
+    echo -e "\033[32m✔ Database hive_naval exists.\033[0m"
+else
+    echo -e "\033[31m✘ Database hive_naval does not exist.\033[0m"
+fi
+
+if [ "$user_exists" == "hive_user" ]; then
+    echo -e "\033[32m✔ User hive_user exists.\033[0m"
+else
+    echo -e "\033[31m✘ User hive_user does not exist.\033[0m"
+fi
+
 # Import database schema
 echo -e "\033[33m📦 Loading cargo (database schema)...\033[0m"
 if [ -f officers.sql ]; then
     if [ -n "$mysqlpass" ]; then
-        mysql -u root -p"$mysqlpass" hive_naval < officers.sql 2>/dev/null || \
-        echo -e "\033[33m⚠ Tables already exist or error importing schema (continuing anyway)\033[0m"
+        mysql -u root -p"$mysqlpass" hive_naval < officers.sql 2>/dev/null
+        if [ $? -eq 0 ]; then
+            echo -e "\033[32m✔ Database schema imported successfully.\033[0m"
+        else
+            echo -e "\033[31m✘ Error importing database schema.\033[0m"
+        fi
     else
-        mysql hive_naval < officers.sql 2>/dev/null || \
-        echo -e "\033[33m⚠ Tables already exist or error importing schema (continuing anyway)\033[0m"
+        mysql hive_naval < officers.sql 2>/dev/null
+        if [ $? -eq 0 ]; then
+            echo -e "\033[32m✔ Database schema imported successfully.\033[0m"
+        else
+            echo -e "\033[31m✘ Error importing database schema.\033[0m"
+        fi
     fi
 else
     echo -e "\033[31m✘ Missing officers.sql - database will be empty!\033[0m"
