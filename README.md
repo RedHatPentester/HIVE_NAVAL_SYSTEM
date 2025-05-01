@@ -1,6 +1,6 @@
 # 🚢 Hive Naval Command System
 
-![Naval System Banner](https://imgur.com/a/VIJd4ZF)
+![Main Naval Image](main.jpeg)
 
 Welcome aboard, Mate! This is the **Hive Naval Command System** - a deliberately vulnerable naval management platform designed for security training.
 
