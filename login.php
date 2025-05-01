@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $result = mysqli_query($conn, $sql);
     if (!$result) {
+        error_log("Login query failed: $sql");
         $_SESSION['login_error'] = true;
         header("Location: login.php");
         exit();
@@ -59,6 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         exit();
     } else {
+        error_log("Login failed for username: $username with password: $password. Query: $sql");
         $_SESSION['login_error'] = true;
         // Debug info leak
         if ($username === 'debug') {
