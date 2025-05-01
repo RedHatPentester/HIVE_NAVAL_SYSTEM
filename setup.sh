@@ -53,58 +53,38 @@ if ! systemctl is-active --quiet mysql; then
     }
 fi
 
-# Create database and user
+# Create database and user without prompting for password
 echo -e "\033[33m🔑 Attempting database setup...\033[0m"
 
-db_exists=$(mysql -e "SHOW DATABASES LIKE 'hive_naval';" | grep hive_naval)
-if [ "$db_exists" == "hive_naval" ]; then
-    echo -e "\033[32m✔ Database hive_naval already exists. Skipping creation.\033[0m"
+if ! mysql -e "CREATE DATABASE IF NOT EXISTS hive_naval;" 2>/dev/null; then
+    echo -e "\033[33m⚠ MySQL root access required. Trying with sudo...\033[0m"
+    sudo mysql -e "CREATE DATABASE IF NOT EXISTS hive_naval;" || {
+        echo -e "\033[31m✘ Failed to create database with sudo.\033[0m"
+        exit 1
+    }
 else
-    if ! mysql -e "CREATE DATABASE hive_naval;" 2>/dev/null; then
-        echo -e "\033[33m⚠ MySQL root access required. Please enter MySQL root password when prompted...\033[0m"
-        read -s -p "MySQL root password: " mysqlpass
-        echo ""
-        mysql -u root -p"$mysqlpass" -e "CREATE DATABASE hive_naval;" || {
-            echo -e "\033[31m✘ Failed to create database! Trying with sudo...\033[0m"
-            sudo mysql -e "CREATE DATABASE hive_naval;"
-        }
-    else
-        echo -e "\033[32m✔ Database hive_naval created successfully.\033[0m"
-    fi
+    echo -e "\033[32m✔ Database hive_naval exists or created successfully.\033[0m"
 fi
 
-user_exists=$(mysql -e "SELECT User FROM mysql.user WHERE User = 'hive_user';" | grep hive_user)
-if [ "$user_exists" == "hive_user" ]; then
-    echo -e "\033[32m✔ User hive_user already exists. Skipping creation.\033[0m"
+if ! mysql -e "CREATE USER IF NOT EXISTS 'hive_user'@'localhost' IDENTIFIED BY 'N@vyS3cr3t!';" 2>/dev/null; then
+    echo -e "\033[33m⚠ MySQL root access required. Trying with sudo...\033[0m"
+    sudo mysql -e "CREATE USER IF NOT EXISTS 'hive_user'@'localhost' IDENTIFIED BY 'N@vyS3cr3t!';" || {
+        echo -e "\033[31m✘ Failed to create user with sudo.\033[0m"
+        exit 1
+    }
 else
-    if [ -z "$mysqlpass" ]; then
-        echo -e "\033[33m⚠ MySQL root access required. Please enter MySQL root password when prompted...\033[0m"
-        read -s -p "MySQL root password: " mysqlpass
-        echo ""
-    fi
-    if [ -n "$mysqlpass" ]; then
-        mysql -u root -p"$mysqlpass" -e "CREATE USER 'hive_user'@'localhost' IDENTIFIED BY 'N@vyS3cr3t!'" || {
-            echo -e "\033[31m✘ Failed to create user! Trying with sudo...\033[0m"
-            sudo mysql -e "CREATE USER 'hive_user'@'localhost' IDENTIFIED BY 'N@vyS3cr3t!';"
-        }
-    else
-        mysql -e "CREATE USER 'hive_user'@'localhost' IDENTIFIED BY 'N@vyS3cr3t!';" || {
-            echo -e "\033[31m✘ Failed to create user without password!\033[0m"
-        }
-    fi
+    echo -e "\033[32m✔ User hive_user exists or created successfully.\033[0m"
 fi
 
-# Grant privileges
 echo -e "\033[33m🔐 Granting privileges to hive_user...\033[0m"
-if [ -n "$mysqlpass" ]; then
-    mysql -u root -p"$mysqlpass" -e "GRANT ALL PRIVILEGES ON hive_naval.* TO 'hive_user'@'localhost';" || {
-        echo -e "\033[31m✘ Failed to grant privileges! Trying with sudo...\033[0m"
-        sudo mysql -e "GRANT ALL PRIVILEGES ON hive_naval.* TO 'hive_user'@'localhost';"
+if ! mysql -e "GRANT ALL PRIVILEGES ON hive_naval.* TO 'hive_user'@'localhost';" 2>/dev/null; then
+    echo -e "\033[33m⚠ Trying to grant privileges with sudo...\033[0m"
+    sudo mysql -e "GRANT ALL PRIVILEGES ON hive_naval.* TO 'hive_user'@'localhost';" || {
+        echo -e "\033[31m✘ Failed to grant privileges with sudo.\033[0m"
+        exit 1
     }
 else
-    mysql -e "GRANT ALL PRIVILEGES ON hive_naval.* TO 'hive_user'@'localhost';" || {
-        echo -e "\033[31m✘ Failed to grant privileges without password!\033[0m"
-    }
+    echo -e "\033[32m✔ Privileges granted successfully.\033[0m"
 fi
 
 mysql -e "FLUSH PRIVILEGES;"
@@ -117,20 +97,11 @@ if [ "$table_exists" == "officers" ]; then
 else
     echo -e "\033[33m📦 Importing database schema...\033[0m"
     if [ -f officers.sql ]; then
-        if [ -n "$mysqlpass" ]; then
-            mysql -u root -p"$mysqlpass" hive_naval < officers.sql
-            if [ $? -eq 0 ]; then
-                echo -e "\033[32m✔ Database schema imported successfully.\033[0m"
-            else
-                echo -e "\033[31m✘ Error importing database schema.\033[0m"
-            fi
+        mysql hive_naval < officers.sql
+        if [ $? -eq 0 ]; then
+            echo -e "\033[32m✔ Database schema imported successfully.\033[0m"
         else
-            mysql hive_naval < officers.sql
-            if [ $? -eq 0 ]; then
-                echo -e "\033[32m✔ Database schema imported successfully.\033[0m"
-            else
-                echo -e "\033[31m✘ Error importing database schema.\033[0m"
-            fi
+            echo -e "\033[31m✘ Error importing database schema.\033[0m"
         fi
     else
         echo -e "\033[31m✘ Missing officers.sql - database will be empty!\033[0m"
