@@ -21,12 +21,13 @@ fi
 echo -e "\033[33m⚓ Anchors aweigh! Installing dependencies...\033[0m"
 apt-get update
 
+
 # Handle different MySQL server package names
 if apt-cache show mysql-server &> /dev/null; then
-    apt-get install -y mysql-server php php-mysql
+    apt-get install -y mysql-server php php-mysql php-mysqli
 else
     echo -e "\033[33m⚠ mysql-server not found, trying default-mysql-server...\033[0m"
-    apt-get install -y default-mysql-server php php-mysql
+    apt-get install -y default-mysql-server php php-mysql php-mysqli
 fi
 
 # Verify MySQL installation and install client if needed
